@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tierListFragment"
+        android:title="@string/tier_list"/>
+
+    <item
+        android:id="@+id/championsFragment"
+        android:title="@string/champions"/>
+
+    <item
+        android:id="@+id/profileStatsFragment"
+        android:title="@string/profile_stats"/>
+</menu>

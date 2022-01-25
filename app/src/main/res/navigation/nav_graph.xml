@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/championsFragment">
+
+    <fragment
+        android:id="@+id/championsFragment"
+        android:name="com.example.lolstats.ui.fragments.champions.ChampionsFragment"
+        android:label="Champions"
+        tools:layout="@layout/fragment_champions" />
+    <fragment
+        android:id="@+id/tierListFragment"
+        android:name="com.example.lolstats.ui.fragments.tierlist.TierListFragment"
+        android:label="Tier list"
+        tools:layout="@layout/fragment_tier_list" />
+    <fragment
+        android:id="@+id/profileStatsFragment"
+        android:name="com.example.lolstats.ui.fragments.summoner.SummonerFragment"
+        android:label="Find summoner"
+        tools:layout="@layout/fragment_profile_stats" />
+</navigation>
