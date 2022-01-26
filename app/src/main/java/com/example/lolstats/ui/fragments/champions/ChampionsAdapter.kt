@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.lolstats.api.items.Champion
 import com.example.lolstats.databinding.ItemChampionCircleBinding
-import com.example.lolstats.util.toChampionUrl
+import com.example.lolstats.util.toChampionNameUrl
+import java.lang.StringBuilder
 
 class ChampionsAdapter : ListAdapter<Champion, ChampionsAdapter.ChampionViewHolder>(ChampionComparator()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChampionViewHolder {
@@ -31,10 +32,8 @@ class ChampionsAdapter : ListAdapter<Champion, ChampionsAdapter.ChampionViewHold
             binding.apply {
                 tvChampionName.text = champion.name
 
-                val urlName = champion.name.split("&")[0].replace("[\\s.]".toRegex(), "")
-
                 Glide.with(itemView)
-                    .load("https://ddragon.leagueoflegends.com/cdn/12.2.1/img/champion/${urlName}.png")
+                    .load("https://ddragon.leagueoflegends.com/cdn/12.2.1/img/champion/${champion.name.toChampionNameUrl()}.png")
                     .into(civChampionCircle)
             }
         }
