@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         tools:listitem="@layout/item_champion_circle"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="3"
+        app:spanCount="4"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
