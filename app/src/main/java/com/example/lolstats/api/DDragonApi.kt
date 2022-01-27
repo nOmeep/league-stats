@@ -1,7 +1,6 @@
 package com.example.lolstats.api
 
 import com.example.lolstats.api.items.GameChampions
-import com.example.lolstats.api.items.Image
 import retrofit2.http.GET
 import retrofit2.http.Path
 

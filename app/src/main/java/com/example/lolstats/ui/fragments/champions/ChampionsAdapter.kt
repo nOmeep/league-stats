@@ -1,6 +1,5 @@
 package com.example.lolstats.ui.fragments.champions
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.lolstats.api.items.Champion
 import com.example.lolstats.databinding.ItemChampionCircleBinding
-import com.example.lolstats.util.toChampionNameUrl
-import java.lang.StringBuilder
 
-class ChampionsAdapter : ListAdapter<Champion, ChampionsAdapter.ChampionViewHolder>(ChampionComparator()) {
+class ChampionsAdapter :
+    ListAdapter<Champion, ChampionsAdapter.ChampionViewHolder>(ChampionComparator()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChampionViewHolder {
-        val binding = ItemChampionCircleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemChampionCircleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ChampionViewHolder(binding)
     }
 
@@ -28,12 +27,12 @@ class ChampionsAdapter : ListAdapter<Champion, ChampionsAdapter.ChampionViewHold
     inner class ChampionViewHolder(
         private val binding: ItemChampionCircleBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(champion : Champion) {
+        fun bind(champion: Champion) {
             binding.apply {
                 tvChampionName.text = champion.name
 
                 Glide.with(itemView)
-                    .load("https://ddragon.leagueoflegends.com/cdn/12.2.1/img/champion/${champion.name.toChampionNameUrl()}.png")
+                    .load("https://ddragon.leagueoflegends.com/cdn/12.2.1/img/champion/${champion.image.full}")
                     .into(civChampionCircle)
             }
         }

@@ -14,7 +14,7 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideDDragonApi() : DDragonApi =
+    fun provideDDragonApi(): DDragonApi =
         Retrofit.Builder()
             .baseUrl(DDragonApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
