@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/iv_choose_class"
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_height="0dp"
         android:src="@drawable/ic_filter_champion"
         app:layout_constraintBottom_toTopOf="@id/rvChampionList"
@@ -20,7 +20,7 @@
 
     <ImageView
         android:id="@+id/ivFilter"
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_height="0dp"
         android:src="@drawable/ic_filter_champion"
         app:layout_constraintBottom_toTopOf="@id/rvChampionList"
@@ -34,6 +34,8 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="4dp"
         android:drawableStart="@drawable/ic_find_icon"
+        android:maxLines="1"
+        android:maxLength="15"
         android:drawablePadding="4dp"
         android:hint="@string/find_champions"
         app:layout_constraintBottom_toTopOf="@id/rvChampionList"

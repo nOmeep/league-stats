@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import androidx.appcompat.widget.SearchView
-import androidx.core.widget.addTextChangedListener
+import android.view.WindowInsets
+import android.view.WindowInsetsAnimation
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -27,12 +27,10 @@ class ChampionsFragment : Fragment(R.layout.fragment_champions) {
         _binding = FragmentChampionsBinding.bind(view)
 
         val championsAdapter = ChampionsAdapter()
+        binding.rvChampionList.adapter = championsAdapter
 
-        binding.apply {
-            rvChampionList.adapter = championsAdapter
-            setTopScrollAfterChange()
-            setSearchFunctionality()
-        }
+        setTopScrollAfterChange()
+        setSearchFunctionality()
 
         viewModel.championList.observe(viewLifecycleOwner) { champions ->
             championsAdapter.modifyList(champions)

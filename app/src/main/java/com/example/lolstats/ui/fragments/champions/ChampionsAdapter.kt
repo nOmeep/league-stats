@@ -59,10 +59,17 @@ class ChampionsAdapter :
     fun filter(query: CharSequence?) {
         val list = mutableListOf<Champion>()
 
-        if(!query.isNullOrEmpty()) {
-            list.addAll(unfilteredList.filter {
-                it.name.lowercase(Locale.getDefault()).contains(query.toString().lowercase(Locale.getDefault())) ||
-                        it.name.lowercase(Locale.getDefault()).contains(query.toString().lowercase(Locale.getDefault())) })
+        if (!query.isNullOrEmpty()) {
+            list.addAll(unfilteredList.filter { champion ->
+                champion.name
+                    .replace("\\s".toRegex(), "")
+                    .lowercase(Locale.getDefault())
+                    .contains(
+                        query
+                            .replace("\\s".toRegex(), "")
+                            .lowercase(Locale.getDefault())
+                    )
+            })
         } else {
             list.addAll(unfilteredList)
         }
