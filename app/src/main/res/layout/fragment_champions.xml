@@ -1,26 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragments.champions.ChampionsFragment"
-    android:padding="4dp">
+    android:padding="4dp"
+    tools:context=".ui.fragments.champions.ChampionsFragment">
+
+    <ImageView
+        android:id="@+id/iv_choose_class"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_filter_champion"
+        app:layout_constraintBottom_toTopOf="@id/rvChampionList"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/svFindChampions"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svFindChampions"
+        app:queryHint="Hint"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="4dp"
+        app:layout_constraintBottom_toTopOf="@id/rvChampionList"
+        app:layout_constraintLeft_toRightOf="@id/iv_choose_class"
+        app:layout_constraintRight_toLeftOf="@id/ivFilter"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivFilter"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_filter_champion"
+        app:layout_constraintBottom_toTopOf="@id/rvChampionList"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/svFindChampions"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvChampionList"
-        android:layout_gravity="center_horizontal"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:listitem="@layout/item_champion_circle"
+        android:layout_gravity="center_horizontal"
+        android:clipToPadding="true"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="4"
-
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-
+        app:layout_constraintTop_toBottomOf="@id/svFindChampions"
+        app:spanCount="4"
+        tools:listitem="@layout/item_champion_circle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
