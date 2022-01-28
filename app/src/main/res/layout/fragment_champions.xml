@@ -14,19 +14,9 @@
         android:src="@drawable/ic_filter_champion"
         app:layout_constraintBottom_toTopOf="@id/rvChampionList"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/svFindChampions"/>
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/svFindChampions"
-        app:queryHint="Hint"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="4dp"
-        app:layout_constraintBottom_toTopOf="@id/rvChampionList"
-        app:layout_constraintLeft_toRightOf="@id/iv_choose_class"
-        app:layout_constraintRight_toLeftOf="@id/ivFilter"
+        app:layout_constraintRight_toLeftOf="@id/etSearchChampion"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/ivFilter"
@@ -34,9 +24,22 @@
         android:layout_height="0dp"
         android:src="@drawable/ic_filter_champion"
         app:layout_constraintBottom_toTopOf="@id/rvChampionList"
+        app:layout_constraintLeft_toRightOf="@id/etSearchChampion"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/svFindChampions"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etSearchChampion"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="4dp"
+        android:drawableStart="@drawable/ic_find_icon"
+        android:drawablePadding="4dp"
+        android:hint="@string/find_champions"
+        app:layout_constraintBottom_toTopOf="@id/rvChampionList"
+        app:layout_constraintLeft_toRightOf="@id/iv_choose_class"
+        app:layout_constraintRight_toLeftOf="@id/ivFilter"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -50,7 +53,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
 
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/svFindChampions"
+        app:layout_constraintTop_toBottomOf="@id/etSearchChampion"
         app:spanCount="4"
         tools:listitem="@layout/item_champion_circle" />
 
