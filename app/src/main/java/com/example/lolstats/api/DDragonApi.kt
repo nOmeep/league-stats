@@ -13,9 +13,4 @@ interface DDragonApi {
     suspend fun getAllChampions(
         @Path("language") language: String
     ): GameChampions
-
-    @GET("img/champion/{heroName}.png")
-    suspend fun getSquareAsset(
-        @Path("heroName") hero : String
-    ) : String
 }

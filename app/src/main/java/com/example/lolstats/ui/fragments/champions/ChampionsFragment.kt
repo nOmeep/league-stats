@@ -27,59 +27,24 @@ class ChampionsFragment : Fragment(R.layout.fragment_champions) {
         val championsAdapter = ChampionsAdapter()
         binding.rvChampionList.adapter = championsAdapter
 
-        setTopScrollAfterChange()
-        setSearchFunctionality()
+        setupTopScrollAfterChange()
+        setupSearchFunctionality()
 
-        viewModel.championList.observe(viewLifecycleOwner) { champions ->
+        viewModel.getAllExistingChampions().observe(viewLifecycleOwner) { champions ->
             championsAdapter.modifyList(champions)
         }
     }
 
-    private fun setTopScrollAfterChange() {
+    private fun setupTopScrollAfterChange() {
         binding.apply {
-            rvChampionList.adapter?.registerAdapterDataObserver(object :
-                RecyclerView.AdapterDataObserver() {
-                override fun onChanged() {
-                    rvChampionList.scrollToPosition(0)
-                }
-
-                override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
-                    rvChampionList.scrollToPosition(0)
-                }
-
-                override fun onItemRangeMoved(fromPosition: Int, toPosition: Int, itemCount: Int) {
-                    rvChampionList.scrollToPosition(0)
-                }
-
-                override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-                    rvChampionList.scrollToPosition(0)
-                }
-
-                override fun onItemRangeChanged(positionStart: Int, itemCount: Int) {
-                    rvChampionList.scrollToPosition(0)
-                }
-
-                override fun onItemRangeChanged(positionStart: Int, itemCount: Int, payload: Any?) {
-                    rvChampionList.scrollToPosition(0)
-                }
-            })
+            rvChampionList.adapter?.registerAdapterDataObserver(OnChangeScroller(rvChampionList))
         }
     }
 
-    private fun setSearchFunctionality() {
+    private fun setupSearchFunctionality() {
         binding.apply {
-            etSearchChampion.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-                }
-
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    (rvChampionList.adapter as ChampionsAdapter).filter(p0)
-                }
-
-                override fun afterTextChanged(p0: Editable?) {
-
-                }
+            etSearchChampion.addTextChangedListener(ChampionSearcher {
+                (rvChampionList.adapter as ChampionsAdapter).filter(it)
             })
         }
     }
