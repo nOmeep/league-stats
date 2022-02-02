@@ -1,14 +1,13 @@
 package com.example.lolstats.ui.fragments.champions
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.RecyclerView
 import com.example.lolstats.R
 import com.example.lolstats.databinding.FragmentChampionsBinding
+import com.example.lolstats.ui.fragments.champions.listeners.ChampionSearcher
+import com.example.lolstats.ui.fragments.champions.listeners.OnChangeScroller
 import com.example.lolstats.ui.viewmodel.LeagueStatsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

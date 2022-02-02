@@ -1,4 +1,4 @@
-package com.example.lolstats.ui.fragments.champions
+package com.example.lolstats.ui.fragments.champions.listeners
 
 import android.text.Editable
 import android.text.TextWatcher
