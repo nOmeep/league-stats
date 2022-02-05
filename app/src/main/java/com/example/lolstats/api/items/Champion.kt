@@ -1,5 +1,8 @@
 package com.example.lolstats.api.items
 
+import androidx.room.Entity
+
+@Entity(tableName = "existing_champions")
 data class Champion(
     val blurb: String,
     val id: String,
