@@ -1,10 +1,12 @@
 package com.example.lolstats.api.items
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "existing_champions")
 data class Champion(
     val blurb: String,
+    @PrimaryKey(autoGenerate = false)
     val id: String,
     val image: Image,
     val info: Info,
