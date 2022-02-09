@@ -29,8 +29,8 @@ class ChampionsFragment : Fragment(R.layout.fragment_champions) {
         setupTopScrollAfterChange()
         setupSearchFunctionality()
 
-        viewModel.getAllExistingChampions().observe(viewLifecycleOwner) { champions ->
-            championsAdapter.modifyList(champions)
+        viewModel.getAllExistingChampions().observe(viewLifecycleOwner) { resource ->
+            championsAdapter.modifyList(resource.data)
         }
     }
 
