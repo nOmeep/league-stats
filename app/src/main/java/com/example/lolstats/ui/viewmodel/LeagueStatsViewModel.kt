@@ -9,19 +9,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LeagueStatsViewModel @Inject constructor(
-    private val repository: ChampionsRepository
+    repository: ChampionsRepository,
 ) : ViewModel() {
-    val championsListLiveData = repository.getAllChampions(Languages.ENGLISH).asLiveData()
-
-    /*
-    init {
-        viewModelScope.launch {
-            val championsMap = dragonApi.getAllChampions(Languages.ENGLISH).data
-            championsListLiveData.value = championsMap.values.toList()
-        }
-    }
+    private val championsListLiveData = repository.getAllChampions(Languages.ENGLISH).asLiveData()
 
     fun getAllExistingChampions() = championsListLiveData
-
-     */
 }

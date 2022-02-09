@@ -51,7 +51,8 @@ class ChampionsAdapter :
 
     }
 
-    fun modifyList(list: List<Champion>) {
+    fun modifyList(list: List<Champion>?) {
+        if (list.isNullOrEmpty()) return
         unfilteredList = list
         submitList(list)
     }

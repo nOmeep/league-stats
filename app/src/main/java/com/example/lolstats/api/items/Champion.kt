@@ -1,5 +1,6 @@
 package com.example.lolstats.api.items
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,12 +9,12 @@ data class Champion(
     val blurb: String,
     @PrimaryKey(autoGenerate = false)
     val id: String,
-    val image: Image,
-    val info: Info,
+    @Embedded val image: Image,
+    @Embedded val info: Info,
     val key: String,
     val name: String,
     val partype: String,
-    val stats: Stats,
+    @Embedded val stats: Stats,
     val tags: List<String>,
     val title: String,
     val version: String

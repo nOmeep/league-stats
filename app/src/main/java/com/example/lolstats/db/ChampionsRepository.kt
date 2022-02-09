@@ -17,7 +17,6 @@ class ChampionsRepository @Inject constructor(
             championsDao.getAllChampions()
         },
         fetch = {
-            delay(2000)
             api.getAllChampions(language)
         },
         saveFetchResult = { champions ->
