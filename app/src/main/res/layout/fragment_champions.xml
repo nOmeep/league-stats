@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,52 +11,46 @@
         android:id="@+id/iv_choose_class"
         android:layout_width="30dp"
         android:layout_height="0dp"
-        android:src="@drawable/ic_filter_champion"
-        app:layout_constraintBottom_toTopOf="@id/rvChampionList"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/etSearchChampion"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_above="@id/rvChampionList"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_filter_champion" />
 
     <ImageView
         android:id="@+id/ivFilter"
         android:layout_width="30dp"
         android:layout_height="0dp"
-        android:src="@drawable/ic_filter_champion"
-        app:layout_constraintBottom_toTopOf="@id/rvChampionList"
-        app:layout_constraintLeft_toRightOf="@id/etSearchChampion"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_above="@id/rvChampionList"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_filter_champion" />
 
     <EditText
         android:id="@+id/etSearchChampion"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_alignParentTop="true"
         android:layout_marginHorizontal="4dp"
+        android:layout_toStartOf="@id/ivFilter"
+        android:layout_toEndOf="@id/iv_choose_class"
         android:drawableStart="@drawable/ic_find_icon"
-        android:maxLines="1"
-        android:maxLength="15"
         android:drawablePadding="4dp"
         android:hint="@string/find_champions"
-        app:layout_constraintBottom_toTopOf="@id/rvChampionList"
-        app:layout_constraintLeft_toRightOf="@id/iv_choose_class"
-        app:layout_constraintRight_toLeftOf="@id/ivFilter"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:maxLength="15"
+        android:maxLines="1" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvChampionList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_below="@id/etSearchChampion"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="center_horizontal"
         android:clipToPadding="true"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSearchChampion"
         app:spanCount="4"
         tools:listitem="@layout/item_champion_circle" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
