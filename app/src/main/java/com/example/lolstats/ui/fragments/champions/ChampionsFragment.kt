@@ -33,9 +33,7 @@ class ChampionsFragment : Fragment(R.layout.fragment_champions) {
 
         viewModel.getAllExistingChampions().observe(viewLifecycleOwner) { resource ->
             championsAdapter.modifyList(resource.data)
-
-            binding.pbLoading.isVisible = resource is Resource.Loading
-                    && resource.data.isNullOrEmpty()
+            resource.setLoadingOrError(binding)
         }
     }
 
