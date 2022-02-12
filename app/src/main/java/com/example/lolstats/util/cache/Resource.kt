@@ -1,4 +1,7 @@
-package com.example.lolstats.util
+package com.example.lolstats.util.cache
+
+import androidx.core.view.isVisible
+import com.example.lolstats.databinding.FragmentChampionsBinding
 
 sealed class Resource<T>(
     val data: T? = null,
@@ -16,4 +19,9 @@ sealed class Resource<T>(
         throwable: Throwable,
         data: T?
     ) : Resource<T>(data, throwable)
+
+    fun setLoadingOrError(binding: FragmentChampionsBinding) {
+        binding.pbLoading.isVisible = this is Loading
+        binding.tvLoadingText.isVisible = this is Loading
+    }
 }

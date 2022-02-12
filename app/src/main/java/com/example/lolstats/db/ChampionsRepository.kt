@@ -2,8 +2,7 @@ package com.example.lolstats.db
 
 import androidx.room.withTransaction
 import com.example.lolstats.api.DDragonApi
-import com.example.lolstats.util.networkBoundResource
-import kotlinx.coroutines.delay
+import com.example.lolstats.util.cache.networkBoundResource
 import javax.inject.Inject
 
 class ChampionsRepository @Inject constructor(
