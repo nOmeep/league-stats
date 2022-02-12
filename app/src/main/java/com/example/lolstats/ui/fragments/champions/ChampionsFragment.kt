@@ -28,26 +28,15 @@ class ChampionsFragment : Fragment(R.layout.fragment_champions) {
         val championsAdapter = ChampionsAdapter()
         binding.rvChampionList.adapter = championsAdapter
 
-        setupTopScrollAfterChange()
-        setupSearchFunctionality()
+        binding.rvChampionList.adapter?.registerAdapterDataObserver(OnChangeScroller(binding.rvChampionList))
+
+        binding.etSearchChampion.addTextChangedListener(ChampionSearcher {
+            championsAdapter.filter(it)
+        })
 
         viewModel.getAllExistingChampions().observe(viewLifecycleOwner) { resource ->
             championsAdapter.modifyList(resource.data)
             resource.setLoadingOrError(binding)
-        }
-    }
-
-    private fun setupTopScrollAfterChange() {
-        binding.apply {
-            rvChampionList.adapter?.registerAdapterDataObserver(OnChangeScroller(rvChampionList))
-        }
-    }
-
-    private fun setupSearchFunctionality() {
-        binding.apply {
-            etSearchChampion.addTextChangedListener(ChampionSearcher {
-                (rvChampionList.adapter as ChampionsAdapter).filter(it)
-            })
         }
     }
 
