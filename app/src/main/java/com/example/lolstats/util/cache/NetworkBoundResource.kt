@@ -1,5 +1,6 @@
 package com.example.lolstats.util
 
+import com.example.lolstats.util.cache.Resource
 import kotlinx.coroutines.flow.*
 
 inline fun <ResultType, RequestType> networkBoundResource(

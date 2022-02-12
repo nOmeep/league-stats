@@ -1,4 +1,4 @@
-package com.example.lolstats.util
+package com.example.lolstats.util.cache
 
 sealed class Resource<T>(
     val data: T? = null,
