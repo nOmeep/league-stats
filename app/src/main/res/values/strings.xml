@@ -7,4 +7,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sample_name">sample_name</string>
     <string name="find_champions">Find champions</string>
+    <string name="loading">Loading...</string>
 </resources>
