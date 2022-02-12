@@ -9,9 +9,10 @@
     android:layout_margin="4dp"
     android:padding="4dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/civChampionCircle"
@@ -19,24 +20,17 @@
             android:layout_height="100dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="#F3AE64"
-            app:civ_border_width="2dp"
-            app:layout_constraintBottom_toTopOf="@id/tvChampionName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:civ_border_width="2dp" />
 
         <TextView
             android:id="@+id/tvChampionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="@string/sample_name"
             android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/civChampionCircle" />
+            android:textSize="12sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
